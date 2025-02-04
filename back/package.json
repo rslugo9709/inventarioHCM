@@ -1,0 +1,25 @@
+{
+  "name": "control_inventario",
+  "version": "1.0.0",
+  "description": "Este proyecto se realiza para la empresa HCM SAS para su control de inventario, no se autoriza su distribucion ni replicacion. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rslugo9709/inventarioHCM.git"
+  },
+  "keywords": [
+    "inventario",
+    "nodejs",
+    "clientes",
+    "proyecciones"
+  ],
+  "author": "Raul Lugo",
+  "license": "BSL-1.0",
+  "bugs": {
+    "url": "https://github.com/rslugo9709/inventarioHCM/issues"
+  },
+  "homepage": "https://github.com/rslugo9709/inventarioHCM#readme"
+}
