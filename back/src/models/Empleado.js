@@ -24,9 +24,6 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      esVendedor: {
-        type: DataTypes.BOOLEAN
-      },
       activoDesde: {
         type: DataTypes.DATEONLY,
         defaultValue: DataTypes.NOW,
