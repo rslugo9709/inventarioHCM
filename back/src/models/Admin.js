@@ -29,6 +29,7 @@ module.exports = (sequelize) => {
       },
       activoDesde: {
         type: DataTypes.DATEONLY,
+        defaultValue: DataTypes.NOW,
         allowNull: false
       },
       estado:{
