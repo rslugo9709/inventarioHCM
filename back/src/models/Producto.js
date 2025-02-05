@@ -41,6 +41,10 @@ module.exports = (sequelize) => {
         type: DataTypes.ARRAY(DataTypes.DOUBLE),
         allowNull: true
       },
+      marca: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       activoDesde: {
         type: DataTypes.DATEONLY,
         defaultValue: DataTypes.NOW,
