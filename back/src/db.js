@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {DB_USER, DB_PASSWORD, DB_HOST, PORT, BDD} = process.env;
+const {DB_USER, DB_PASSWORD, DB_HOST, DBPORT, BDD} = process.env;
 
 try {
     console.log(DB_USER);
@@ -10,7 +10,7 @@ try {
     console.log("not reading")
 }
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${PORT}/${BDD}`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DBPORT}/${BDD}`, {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   });
