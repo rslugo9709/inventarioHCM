@@ -1,3 +1,5 @@
+const { DataTypes } = require("sequelize");
+
 module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('OrdenCompra', {
@@ -11,6 +13,13 @@ module.exports = (sequelize) => {
       ordenExternaId: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      direccionEntrega:{
+        type: DataTypes.STRING     
+      },
+      tiempoEstimado: {
+        type: DataTypes.SMALLINT,
+        defaultValue: 5
       }
       ,
       vigencia: {
@@ -32,6 +41,11 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.NOW,
         allowNull: false
       },
+      procesado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      }
+      ,
       borrado: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
