@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+const { Client } = require('pg');
 const {DB_USER, DB_PASSWORD, DB_HOST, DBPORT, BDD} = process.env;
 /*
 try {
@@ -54,11 +55,23 @@ const { Admin, Cliente, Cotizacion, Empleado, Empresa, Factura, Natural, OrdenCo
 
 // Se definen las relaciones
 try {
+    //relacion productos con clientes
     Producto.belongsToMany(Cliente, {through: "producto_cliente",timestamps: false });
-    Empleado.belongsToMany(Cliente, {through: "cliente_empleado",timestamps: false });
-    Natural.belongsTo(Cliente, {foreignKey: 'naturalId',as: 'cliente'});
-    Empresa.belongsTo(Cliente, {foreignKey: 'empresaId',as: 'cliente'})
-
+    Cliente.belongsToMany(Producto, {through: "producto_cliente",timestamps: false});
+    //relacion vendedores procesos
+    Empleado.belongsToMany(Proceso, {through: "proceso_empleado",timestamps: false });
+    Proceso.belongsToMany(Empleado, {through: "proceso_empleado",timestamps: false });
+    //relacion clientes procesos
+    Cliente.belongsToMany(Proceso, {through: "proceso_cliente",timestamps: false });
+    Proceso.belongsToMany(Cliente, {through: "proceso_cliente",timestamps: false });
+    //Ponemos las relaciones de herencia de clientes
+    Natural.belongsTo(Cliente, {foreignKey: 'clienteId',as: 'cliente'});
+    Empresa.belongsTo(Cliente, {foreignKey: 'clienteId',as: 'cliente'});
+    //relaciones de herencia de procesos
+    Cotizacion.belongsTo(Proceso, {foreignKey: 'id',as: 'cotizaciones'});
+    Factura.belongsTo(Proceso, {foreignKey: 'id',as: 'facturas'});
+    OrdenCompra.belongsTo(Proceso, {foreignKey: 'id',as: 'Orden de compra'});
+    Remision.belongsTo(Proceso, {foreignKey: 'id',as: 'Remisiones'});
 } catch (error) {
     console.log("Modelos no listos, falta configurar");
     console.log(error);

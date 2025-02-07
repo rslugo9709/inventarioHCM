@@ -7,8 +7,7 @@ const port = process.env.PORT || 3000;
 
 conn.sync({ alter: true }).then(() => {
   server.listen(port, () => {
-    console.log("Servidor andando")
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('Server listening at 3001'); // eslint-disable-line no-console
   });
 });
 
@@ -21,9 +20,4 @@ server.listen(port, () => {
     console.log('%s listening at ${port}'); // eslint-disable-line no-console
 });
 
-*/
-/*
-server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-});
 */
