@@ -19,7 +19,7 @@ async function deleteClientById(req, res){
         await cliente.update({ borrado });
 
 
-        return res.status(200).json({message: "cliente borrado existosamente"})
+        return res.status(200).json({message: "cliente borrado exitosamente"})
     } catch (error) {
         
         res.status(500).json({message: error.message})

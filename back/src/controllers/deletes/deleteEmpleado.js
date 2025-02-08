@@ -19,7 +19,7 @@ async function deleteEmpleadoById(req, res){
         await empleado.update({ borrado });
 
 
-        return res.status(200).json({message: "Empleado borrado existosamente"})
+        return res.status(200).json({message: "Empleado borrado exitosamente"})
     } catch (error) {
         
         res.status(500).json({message: error.message})

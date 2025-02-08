@@ -19,7 +19,7 @@ async function deleteCotizacionById(req, res){
         await cotizacion.update({ borrado });
 
 
-        return res.status(200).json({message: "Cotizacion borrada existosamente"})
+        return res.status(200).json({message: "Cotizacion borrada exitosamente"})
     } catch (error) {
         
         res.status(500).json({message: error.message})
