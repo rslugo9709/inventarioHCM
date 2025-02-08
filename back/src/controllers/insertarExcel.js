@@ -8,7 +8,7 @@ const importarExcel = async () => {
     await sequelize.authenticate();
     console.log("Conexión establecida correctamente.");
 
-    // Sincronizar modelo (⚠ elimina tabla si ya existe en `force: true`)
+    // Sincronizar modelo (elimina tabla si ya existe en `force: true`)
     await sequelize.sync({ force: false });
 
     // Leer archivo Excel
