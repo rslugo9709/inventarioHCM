@@ -65,14 +65,15 @@ try {
     Cliente.belongsToMany(Proceso, {through: "proceso_cliente",timestamps: false });
     Proceso.belongsToMany(Cliente, {through: "proceso_cliente",timestamps: false });
     //Ponemos las relaciones de herencia de clientes
-    Natural.belongsTo(Cliente, {foreignKey: 'clienteId',as: 'cliente'});
-    Cliente.hasOne(Natural, {foreignKey: 'clienteId',as: 'cliente'})
-    Empresa.belongsTo(Cliente, {foreignKey: 'clienteId',as: 'cliente'});
+    Natural.belongsTo(Cliente, {foreignKey: 'clienteId'});
+    Cliente.hasOne(Natural, {foreignKey: 'clienteId'})
+    Empresa.belongsTo(Cliente, {foreignKey: 'clienteId'});
+    Cliente.hasOne(Empresa, {foreignKey: 'clienteId',as: 'cliente'})
     //relaciones de herencia de procesos
-    Cotizacion.belongsTo(Proceso, {foreignKey: 'id',as: 'cotizaciones'});
-    Factura.belongsTo(Proceso, {foreignKey: 'id',as: 'facturas'});
-    OrdenCompra.belongsTo(Proceso, {foreignKey: 'id',as: 'Orden de compra'});
-    Remision.belongsTo(Proceso, {foreignKey: 'id',as: 'Remisiones'});
+    Cotizacion.belongsTo(Proceso, {foreignKey: 'id'});
+    Factura.belongsTo(Proceso, {foreignKey: 'id'});
+    OrdenCompra.belongsTo(Proceso, {foreignKey: 'id'});
+    Remision.belongsTo(Proceso, {foreignKey: 'id'});
 } catch (error) {
     console.log("Modelos no listos, falta configurar");
     console.log(error);

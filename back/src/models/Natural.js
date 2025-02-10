@@ -3,11 +3,12 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('Natural', {
-      id:{
+      //Dado que es una relacion de herencia, se coloca el id de la tabla clientes como llave foranea.
+      clienteId:{
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        allowNull: false
+        allowNull: false,
+        references: { model: "Cliente", key: "id" }
       }
       ,
       tipoId: {
