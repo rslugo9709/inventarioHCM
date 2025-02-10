@@ -10,6 +10,7 @@ const {getClientes} = require("../controllers/gets/getAll/getClientes");
 
 
 //Importamos los posts 
+const { postCliente } = require('../controllers/posts/postCliente');
 
 //Importamos los deletes 
 const { deleteClientById } = require('../controllers/deletes/deleteCliente');
@@ -23,10 +24,15 @@ const { deleteRemisionById } = require('../controllers/deletes/deleteRemision');
 
 //Importamos los updates
 
+
+
+
 //Rutas get
 
 router.get("/clientes/", getClientes);
 
+//Rutas posts 
+router.post("/crearcliente", postCliente);
 
 //Rutas delete
 
