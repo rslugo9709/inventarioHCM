@@ -5,7 +5,7 @@ async function postCliente(req, res){
 
 
     try{
-    const {nombre, tipo, correo, direccion } = req.body;
+    const {nombre, tipo, correo } = req.body;
     const today = new Date();
     const formattedDate = today.toLocaleDateString('en-US', {
         month: '2-digit',
@@ -16,13 +16,12 @@ async function postCliente(req, res){
         nombre: nombre,
         tipo: tipo,
         correo: correo,
-        direccion: direccion,
         activoDesde: formattedDate,
     }
     console.log("recibe la info")
     console.log(objeto);
     //si falta algun dato se rechaza
-    if(!nombre || !correo  || !direccion ){
+    if(!nombre || !correo ){
         return res.status(401).send("Missing info");
     }
     console.log("se verifica que no falte nada")
