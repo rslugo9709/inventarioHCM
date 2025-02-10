@@ -66,6 +66,7 @@ try {
     Proceso.belongsToMany(Cliente, {through: "proceso_cliente",timestamps: false });
     //Ponemos las relaciones de herencia de clientes
     Natural.belongsTo(Cliente, {foreignKey: 'clienteId',as: 'cliente'});
+    Cliente.hasOne(Natural, {foreignKey: 'clienteId',as: 'cliente'})
     Empresa.belongsTo(Cliente, {foreignKey: 'clienteId',as: 'cliente'});
     //relaciones de herencia de procesos
     Cotizacion.belongsTo(Proceso, {foreignKey: 'id',as: 'cotizaciones'});
