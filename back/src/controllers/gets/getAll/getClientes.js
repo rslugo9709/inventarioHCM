@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Op } = require('sequelize');
 
-const {Cliente, Proceso} = require("../../../db");
+const {Cliente, Proceso, Producto} = require("../../../db");
 
 async function getClientes(req, res){
 
@@ -15,17 +15,20 @@ async function getClientes(req, res){
             include: [
                 {
                     model: Proceso,
-                    attributes: ["id", "fecha inicio", "estado"],
+                    attributes: ["id", "fechaInicio", "estado"],
                     where: {borrado : false},//Trae a los procesos que no esten borrados
                     required: false // Esto es para poder traer a los clientes que aun no tengan procesos
 
-                },
+                }
+                
+                ,
                 {
                     model: Producto,
                     attributes: ["id", "codigo", "nombre", "tipo"],
                     where: {borrado : false},//Trae a los productos que no esten borrados
                     required: false // Esto es para poder traer a los clientes que aun no tengan procesos
                 }
+                
             ],
         })
 

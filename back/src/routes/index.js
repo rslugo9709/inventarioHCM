@@ -32,7 +32,7 @@ const { deleteRemisionById } = require('../controllers/deletes/deleteRemision');
 router.get("/clientes/", getClientes);
 
 //Rutas posts 
-router.post("/crearcliente", postCliente);
+router.post("/crearcliente/", postCliente);
 
 //Rutas delete
 
@@ -44,3 +44,5 @@ router.delete("/eliminarOrdenCompra/", deleteOrdenCompraById);
 router.delete("/eliminarProceso/", deleteProcesoById);
 router.delete("/eliminarProducto/", deleteProductoById);
 router.delete("/eliminarRemision/", deleteRemisionById);
+
+module.exports = router;

@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-//const routes = require("./routes/index");
+const router = require("./routes/index");
 
 const server = express();
 server.name = 'API';
@@ -22,7 +22,7 @@ server.use((req, res, next) => {
   next();
 });
 
-//server.use('/', routes);
+server.use('/', router);
 
 // Error catching endware.
 try {
