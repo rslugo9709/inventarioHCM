@@ -3,7 +3,7 @@ const { Op } = require('sequelize');
 
 const {Cliente, Proceso} = require("../../../db");
 
-async function getClients(req, res){
+async function getClientes(req, res){
 
 
 
@@ -39,4 +39,4 @@ async function getClients(req, res){
 }
 
 
-module.exports = {getClients};
+module.exports = {getClientes};
