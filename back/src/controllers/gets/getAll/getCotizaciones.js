@@ -8,7 +8,7 @@ async function getCotizaciones(req, res){
 
 
     try {
-        const cotizacion = await Cotizacion.findAll({
+        const resultados = await Cotizacion.findAll({
             where: {
                 borrado: false // Trae solamente a los clientes que no han sido borrados
               },
@@ -24,7 +24,7 @@ async function getCotizaciones(req, res){
             ],
         })
 
-        return res.status(200).json(clientes)
+        return res.status(200).json(resultados)
     } catch (error) {
         
         res.status(500).json({message: error.message})
