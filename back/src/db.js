@@ -74,13 +74,13 @@ try {
     Cotizacion.belongsTo(Proceso, {foreignKey: 'procesoId'});
     Proceso.hasMany(Cotizacion, {foreignKey: 'procesoId'});
 
-    Factura.belongsTo(Proceso, {foreignKey: 'id'});
+    Factura.belongsTo(Proceso, {foreignKey: 'procesoId'});
     Proceso.hasMany(Factura, {foreignKey: 'procesoId'});
 
-    OrdenCompra.belongsTo(Proceso, {foreignKey: 'id'});
+    OrdenCompra.belongsTo(Proceso, {foreignKey: 'procesoId'});
     Proceso.hasMany(Factura, {foreignKey: 'procesoId'});
 
-    Remision.belongsTo(Proceso, {foreignKey: 'id'});
+    Remision.belongsTo(Proceso, {foreignKey: 'procesoId'});
     Proceso.hasMany(Factura, {foreignKey: 'procesoId'});
 
 } catch (error) {

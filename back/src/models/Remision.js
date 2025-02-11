@@ -3,12 +3,14 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('Remision', {
+      
       procesoId:{
         type: DataTypes.UUID,
         primaryKey: true,
         allowNull: false,
         references: { model: "Proceso", key: "id" }
       },
+      
       //Identificador unico externo generado por el world office
       nRemision: {
         type: DataTypes.INTEGER,
