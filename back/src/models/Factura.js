@@ -4,11 +4,11 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('Factura', {
-      id:{
+      procesoId:{
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        allowNull: false
+        allowNull: false,
+        references: { model: "Proceso", key: "id" }
       },
       //Identificador unico externo generado por el world office
       nFactura: {

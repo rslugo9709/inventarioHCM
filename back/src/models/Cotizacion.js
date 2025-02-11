@@ -3,14 +3,14 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('Cotizacion', {
-      id:{
+      procesoId:{
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        allowNull: false
+        allowNull: false,
+        references: { model: "Proceso", key: "id" }
       },
       //variable autoincremental que guarda las iniciales del vendedor junto con el consecutivo de su cotizacion
-      cotizacionId: {
+      idCotizacion: {
         type: DataTypes.STRING,
         allowNull: false
 

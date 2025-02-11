@@ -70,10 +70,19 @@ try {
     Empresa.belongsTo(Cliente, {foreignKey: 'clienteId'});
     Cliente.hasOne(Empresa, {foreignKey: 'clienteId',as: 'cliente'})
     //relaciones de herencia de procesos
-    Cotizacion.belongsTo(Proceso, {foreignKey: 'id'});
+    //se debe hacer la relacion en ambas direcciones para poder hacer consultas bidireccionales
+    Cotizacion.belongsTo(Proceso, {foreignKey: 'procesoId'});
+    Proceso.hasMany(Cotizacion, {foreignKey: 'procesoId'});
+
     Factura.belongsTo(Proceso, {foreignKey: 'id'});
+    Proceso.hasMany(Factura, {foreignKey: 'procesoId'});
+
     OrdenCompra.belongsTo(Proceso, {foreignKey: 'id'});
+    Proceso.hasMany(Factura, {foreignKey: 'procesoId'});
+
     Remision.belongsTo(Proceso, {foreignKey: 'id'});
+    Proceso.hasMany(Factura, {foreignKey: 'procesoId'});
+
 } catch (error) {
     console.log("Modelos no listos, falta configurar");
     console.log(error);
