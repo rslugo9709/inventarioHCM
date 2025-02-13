@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         unique: true,
         allowNull: false
-
+        
       }
       ,
       fechaFactura: {
