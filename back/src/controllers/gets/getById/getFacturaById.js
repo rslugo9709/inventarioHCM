@@ -8,9 +8,9 @@ async function getFacturaById(req, res){
     const {id} = req.query; 
 
     try {
-        const resultado = await Factura.findByPk({
+        const resultado = await Factura.findAll({
             where: {
-                id: id,
+                nFactura: id,
                 borrado: false // Trae solamente a los clientes que no han sido borrados
               },
             include: [

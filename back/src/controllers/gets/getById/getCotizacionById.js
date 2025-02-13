@@ -8,9 +8,9 @@ async function getCotizacionById(req, res){
     const {id} = req.query; 
 
     try {
-        const resultado = await Cotizacion.findByPk({
+        const resultado = await Cotizacion.findAll({
             where: {
-                id: id,
+                idCotizacion: id,
                 borrado: false // Trae solamente a los clientes que no han sido borrados
               },
             include: [

@@ -8,9 +8,9 @@ async function getRemisionById(req, res){
     const {id} = req.query; 
 
     try {
-        const resultado = await Remision.findByPk({
+        const resultado = await Remision.findAll({
             where: {
-                id: id,
+                nRemision: id,
                 borrado: false // Trae solamente a los clientes que no han sido borrados
               },
             include: [

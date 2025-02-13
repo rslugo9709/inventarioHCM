@@ -8,9 +8,9 @@ async function getOrdenById(req, res){
     const {id} = req.query; 
 
     try {
-        const resultado = await OrdenCompra.findByPk({
+        const resultado = await OrdenCompra.findAll({
             where: {
-                id: id,
+                ordenExternaId: id,
                 borrado: false // Trae solamente a los clientes que no han sido borrados
               },
             include: [
