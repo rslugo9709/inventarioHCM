@@ -1,20 +1,27 @@
 const axios = require("axios");
 const { Op } = require('sequelize');
 
-const {Cotizacion, Proceso} = require("../../../db");
+const {Producto, Cliente, Proceso} = require("../../../db");
 
-async function getCotizaciones(req, res){
+async function getProductos(req, res){
 
 
-
+//Se deberia agregar que pudiese contar los productos vendidos por clientes y por procesos
     try {
-        const resultados = await Cotizacion.findAll({
+        const resultados = await Producto.findAll({
             where: {
                 borrado: false // Trae solamente a los clientes que no han sido borrados
               },
             include: [
                 {
                     model: Proceso,
+                    attributes: ["id"],
+                    where: {borrado : false},//Trae a los procesos que no esten borrados
+                    required: false // Esto es para poder traer a los clientes que aun no tengan procesos
+
+                },
+                {
+                    model: Cliente,
                     attributes: ["id"],
                     where: {borrado : false},//Trae a los procesos que no esten borrados
                     required: false // Esto es para poder traer a los clientes que aun no tengan procesos
@@ -34,7 +41,7 @@ async function getCotizaciones(req, res){
 }
 
 
-module.exports = {getCotizaciones};
+module.exports = {getProductos};
 
 
 
