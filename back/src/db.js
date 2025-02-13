@@ -58,7 +58,7 @@ try {
     //relacion productos con clientes
     Producto.belongsToMany(Cliente, {through: "producto_cliente",timestamps: false });
     Cliente.belongsToMany(Producto, {through: "producto_cliente",timestamps: false});
-
+  
     //relaciones procesos con productos
     Producto.belongsToMany(Proceso, {through: "producto_proceso",timestamps: false });
     Proceso.belongsToMany(Producto, {through: "producto_proceso",timestamps: false});

@@ -6,7 +6,7 @@ const {OrdenCompra, Proceso} = require("../../../db");
 async function getOrdenById(req, res){
 
     const {id} = req.query; 
-
+    
     try {
         const resultado = await OrdenCompra.findAll({
             where: {
