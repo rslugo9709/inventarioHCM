@@ -37,7 +37,7 @@ async function getProcesos(req, res){
                     attributes: ["nRemision", "fechaDocumento", "fechaVencimiento", "fechaRecibido", "subTotal", "totalDescuento", "total", "iva", "reteiva", "formaPago", "infoPago", "cuotas", "valorPagado", "valorRestante", "fechasPagadas", "direccion", "ciudad", "nota"],
                     where: {borrado : false},//Trae a los procesos que no esten borrados
                     required: false // Esto es para poder traer a los clientes que aun no tengan procesos
-                },
+                }
 
                 
             ],
