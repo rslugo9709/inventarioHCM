@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       ,
       vigencia: {
         type: DataTypes.SMALLINT,
-        defaultValue: DataTypes.SMALLINT,
+        defaultValue: 5,
         allowNull: false,
       }, 
       ciudad: {
